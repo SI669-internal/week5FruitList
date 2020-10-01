@@ -1,7 +1,8 @@
 import React from 'react';
-import { StyleSheet, Text, SafeAreaView, View, FlatList } from 'react-native';
+import { StyleSheet, Text, View, FlatList } from 'react-native';
 
-export default class App extends React.Component {
+
+export class App1 extends React.Component {
   constructor(props) {
     super(props);
 
@@ -10,14 +11,44 @@ export default class App extends React.Component {
       { type: 'banana', key: '2'},
       { type: 'grape', key: '3'},
       { type: 'pineapple', key: '4'},
-      { type: 'kiwi', key: '5'}
     ];
   }
 
   render() {
     return (
-      <SafeAreaView style={styles.container}>
-        <View style={styles.bodyContainer}>
+      <View style={styles.container1}>
+        <View>
+          <FlatList
+            data={this.fruit}
+            renderItem={({item}) => 
+              <View>
+                <Text>{item.type}</Text>
+              </View>
+            }
+            style={styles.list}
+          />
+        </View>
+      </View>
+    );
+  }
+}
+
+export default class App2 extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.fruit = [
+      { type: 'apple', key: '1'},
+      { type: 'banana', key: '2'},
+      { type: 'grape', key: '3'},
+      { type: 'pineapple', key: '4'},
+    ];
+  }
+
+  render() {
+    return (
+      <View style={styles.container2}>
+        <View>
           <FlatList
             data={this.fruit}
             renderItem={({item}) => 
@@ -28,24 +59,30 @@ export default class App extends React.Component {
             style={styles.list}
           />
         </View>
-      </SafeAreaView>
+      </View>
     );
   }
 }
 
 
 const styles = StyleSheet.create({
-  container: {
+  container1: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'white'
+  },
+  container2: {
     flex: 1,
     alignItems: 'stretch',
     justifyContent: 'center',
-    backgroundColor: 'gray'
+    backgroundColor: 'grey', 
   },
   itemContainer: {
+    flex: 1,
     backgroundColor: 'lightblue',
-    margin: 5,
+    margin: 10,
     padding: 15,
-    width: '100%',
     alignItems: 'flex-start',
     justifyContent: 'center'
   },
