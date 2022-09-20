@@ -61,7 +61,7 @@ export class App2 extends React.Component {
   }
 }
 
-export default class App3 extends React.Component {
+export class App3 extends React.Component {
   constructor(props) {
     super(props);
 
@@ -86,6 +86,49 @@ export default class App3 extends React.Component {
               <View style={styles.itemContainer}>
                 <Text style={styles.itemText}>{item.type}</Text>
               </View>
+            }
+          />
+        </View>
+    );
+  }
+}
+
+class FruitItem extends React.Component {
+  constructor(props) {
+    super(props);
+  }  
+  render() {
+    return (
+      <View style={styles.itemContainer}>
+        <Text style={styles.itemText}>{this.props.type}</Text>
+      </View>
+    );
+  }
+}
+
+export default class App4 extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      fruit: [
+        { type: 'apple', key: '1'},
+        { type: 'banana', key: '2'},
+        { type: 'grape', key: '3'},
+        { type: 'pineapple', key: '4'},
+        { type: 'mango', key: '5'},
+        { type: 'lychee', key: '6'},
+      ]
+    }
+  }
+
+  render() {
+    return (
+        <View style={styles.container2}>
+          <FlatList
+            data={this.state.fruit}
+            renderItem={({item}) => 
+              <FruitItem type={item.type}/>
             }
           />
         </View>
