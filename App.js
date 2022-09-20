@@ -1,8 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, FlatList } from 'react-native';
 
-
-export class App1 extends React.Component {
+class App1 extends React.Component {
   constructor(props) {
     super(props);
 
@@ -33,7 +32,7 @@ export class App1 extends React.Component {
   }
 }
 
-export class App2 extends React.Component {
+class App2 extends React.Component {
   constructor(props) {
     super(props);
 
@@ -61,7 +60,7 @@ export class App2 extends React.Component {
   }
 }
 
-export class App3 extends React.Component {
+class App3 extends React.Component {
   constructor(props) {
     super(props);
 
@@ -106,7 +105,7 @@ class FruitItem extends React.Component {
   }
 }
 
-export default class App4 extends React.Component {
+class App4 extends React.Component {
   constructor(props) {
     super(props);
 
@@ -163,3 +162,8 @@ const styles = StyleSheet.create({
     fontSize: 44,
   }
 });
+
+export default App1;
+// export default App2;
+// export default App3;
+// export default App4;
